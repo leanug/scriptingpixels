@@ -15,9 +15,10 @@ export default function Home() {
             />
           </div>
         </div>
-        <h1 className="text-2xl md:text-6xl mt-2.5 text-white font-semibold">
+        <h1 className="text-2xl md:text-6xl mt-2.5 font-semibold">
           Coming soon
         </h1>
+
       </section>
     </div>
   )

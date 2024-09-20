@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Roboto } from 'next/font/google'
 import './globals.css'
 
-import { ThemeWrapper } from '@/components'
+import { Header, Footer, ThemeController, ThemeWrapper } from '@/components'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -28,7 +28,9 @@ export default function RootLayout({
       <body className={roboto.className}>
         <ThemeWrapper>
           <div className={`flex flex-col min-h-screen font-inter`}>
+            <Header action={<ThemeController />} />
             <main className={`flex-1`}>{children}</main>
+            <Footer />
           </div>
         </ThemeWrapper>
       </body>
