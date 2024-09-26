@@ -5,7 +5,7 @@ import { useState, useRef, useEffect } from 'react'
 
 import { useThemeStore } from '@/store'
 
-export const ThemeController: React.FC = () => {
+const ThemeController: React.FC = () => {
   const dropdownRef = useRef<HTMLUListElement>(null)
   const buttonRef = useRef<HTMLDivElement>(null) // Add ref to the div with role button
 
@@ -146,3 +146,5 @@ export const ThemeController: React.FC = () => {
     </div>
   )
 }
+
+export default ThemeController

@@ -1,21 +1,14 @@
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
 import './globals.css'
 
-import { Header, Footer, ThemeController, ThemeWrapper } from '@/components'
-
-const roboto = Roboto({
-  weight: ['400', '700'],
-  subsets: ['latin'],
-});
+import { siteConfig } from '@/config/site'
+import { Header, Footer, Spacer } from '@/components/layout'
+import ThemeController from '@/components/theme-controller'
+import ThemeProvider from '@/components/providers/theme-provider'
 
 export const metadata: Metadata = {
-  title: 'ScriptingPixels',
-  description: `
-    Learn front-end development, Webflow tips, and TypeScript tricks on 
-    the ScriptingPixels blog. Tutorials, guides, and insights for modern web 
-    developers.
-  `
+  title: siteConfig.title,
+  description: siteConfig.description
 }
 
 export default function RootLayout({
@@ -25,14 +18,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={roboto.className}>
-        <ThemeWrapper>
-          <div className={`flex flex-col min-h-screen font-inter`}>
+      <body className={`scroll-pt-[3.5rem]`}>
+        <ThemeProvider>
+          <div className={`flex flex-col min-h-dvh font-sans`}>
             <Header action={<ThemeController />} />
+            <Spacer size="large" />
             <main className={`flex-1`}>{children}</main>
             <Footer />
           </div>
-        </ThemeWrapper>
+        </ThemeProvider>
       </body>
     </html>
   )

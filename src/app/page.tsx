@@ -1,25 +1,33 @@
 import Image from 'next/image'
+import { posts } from "#site/content"
+import { sortPosts } from '@/utils'
+import PostsList from '@/components/posts/post-list';
+import Link from 'next/link';
 
 export default function Home() {
+  const latestPosts = sortPosts(posts).slice(0, 5);
+  
   return (
-    <div className="flex flex-col items-center justify-between p-2.5 md:p-24">
-      <section className="max-w-3xl text-center">
-        <div className="avatar">
-          <div className="w-28 rounded-full">
-            <Image
-              src={'/logo.png'} // Add the src attribute with the imported image
-              alt="Logo" // Add the alt attribute for accessibility
-              width={300} // Set the width of the image
-              height={300} // Set the height of the image
-              className="rounded-full" // Add any additional styling classes if needed
-            />
+    <section>
+      <div className="max-w-6xl mx-auto">
+        <div className="space-y-3 text-balance">
+          <h1 className="text-xl md:text-5xl mt-2.5 font-semibold">
+            Code, One Step at a Time!
+          </h1>
+          <p className="text-2xl font-medium">
+            Get actionable insights into coding, broken down by the numbers.
+          </p>
+        </div>
+        <div className="mt-8">
+          <h2 className="text-xl mb-2.5">Latest posts</h2>
+          <PostsList posts={latestPosts} />
+          <div className="w-full text-end mt-6">
+            <Link className="btn btn-ghost text-primary" href="/blog">
+              All posts &rarr;
+            </Link>
           </div>
         </div>
-        <h1 className="text-2xl md:text-6xl mt-2.5 font-semibold">
-          Coming soon
-        </h1>
-
-      </section>
-    </div>
+      </div>
+    </section>
   )
 }
