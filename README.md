@@ -6,6 +6,14 @@ Here’s an enhanced version of your README with emojis and improved Markdown fo
 
 Welcome to **Scripting Pixels**! 🚀 Your go-to blog for coding insights and web development tips. This project aims to provide a platform for learning to code through engaging tutorials and practical examples.
 
+## Credits
+
+This project was created by combining resources and tutorials from the following:
+
+- Code snippets from the [Tailwind Next.js Starter Blog](https://tailwind-nextjs-starter-blog.vercel.app/)
+- [YouTube Tutorial by Jolly Coding - NextJS 14 Markdown Blog: TypeScript, Tailwind, shadcn/ui, MDX, Velite](https://www.youtube.com/watch?v=tSI98g3PDyE)
+- Additional custom code developed by me, I used DaisyUI instead of Shadcn/ui
+
 ## 📚 Table of Contents
 
 - [Features](#features)

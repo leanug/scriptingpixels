@@ -69,11 +69,12 @@ export default async function PostPage({ params }: PostPageProps) {
     <section>
       <div className="container max-w-4xl mx-auto">
         <article>
-          <h1 className="mb-2">{post?.title}</h1>
+          <h1 className="text-xl md:text-4xl lg:text-6xl font-bold mb-6 lg:mb-12">
+            {post?.title}
+          </h1>
           {post?.description ? (
             <p className="text-xl mt-0 text-muted-foreground">{post?.description}</p>
           ) : null}
-          <hr className="my-4" />
           <MDXContent code={post?.body || ''} />
         </article>
       </div>

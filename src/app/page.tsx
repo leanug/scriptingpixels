@@ -9,7 +9,7 @@ export default function Home() {
   
   return (
     <section>
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-2xl mx-auto">
         <div className="space-y-3 text-balance">
           <h1 className="text-xl md:text-5xl mt-2.5 font-semibold">
             Code, One Step at a Time!

@@ -7,7 +7,7 @@ type Post = {
   title: string;
   description?: string;
   date: string;
-  tags: string[]
+  tags?: string[]
 };
 
 // Define the type for the component props
@@ -18,7 +18,7 @@ type PostsListProps = {
 // Define the PostsList component
 const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
-    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    <ul className="space-y-6">
       {posts.map(({ slug, title, description, date, tags }) => (
         <PostItem 
           key={slug}
@@ -26,7 +26,7 @@ const PostsList: React.FC<PostsListProps> = ({ posts }) => {
           title={title}
           description={description}
           date={date}
-          tags={tags}
+          tags={tags ?? []}
         />
       ))}
     </ul>

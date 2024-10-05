@@ -1,5 +1,8 @@
-import { formatDate } from "@/utils";
-import Link from "next/link";
+import Image from 'next/image'
+
+import { formatDate } from "@/utils"
+import Link from "next/link"
+import TagList from "../tags/tag-list"
 
 type PostItemProps = {
   slug: string;
@@ -16,32 +19,38 @@ const PostItem: React.FC<PostItemProps> = ({
   date,
   tags
 }) => {
+  const postUrl = `/${slug}`
   return (
     <li key={slug}>
-      <Link href={`/${slug}`}>
-        <article className="card w-full border border-base-300 rounded-lg">
-          <div className="card-body text-start">
+      <article className="card">
+        <div className="flex items-start flex-row gap-4">
+          <Image
+            src={'/logo.png'}
+            alt="Logo"
+            width={46}
+            height={46}
+          />
+          <div className="text-start">
             <time 
               dateTime={date}
-              className="text-sm font-light"
+              className="text-sm"
             >
               {formatDate(date)}
             </time>
-            <h2 className="card-title">{title}</h2>
-            <div className="space-x-2.5">
-              {tags && tags.map(tag => (
-                <span 
-                key={tag} 
-                className="text-sm uppercase text-primary font-medium"
-              >
-                {tag}
-              </span>
-              ))}
+            <Link href={postUrl}>
+              <h2 className="card-title">{title}</h2>
+            </Link>
+            <div className="mt-2">
+              <TagList tags={tags} />
             </div>
-            {description && <p className="font-light mt-4">{description}</p>}
+            {description && (
+              <Link href={postUrl}>
+                <p className="font-light mt-3">{description}</p>
+              </Link>
+            )}
           </div>
-        </article>
-      </Link>
+        </div>
+      </article>
     </li>
   )
 }

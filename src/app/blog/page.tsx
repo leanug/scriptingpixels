@@ -1,6 +1,6 @@
 import { posts } from "#site/content";
 import { Metadata } from "next";
-import { getAllTags, sortPosts, sortTagsByCount } from "@/utils";
+import { sortPosts } from "@/utils";
 import PostList from '@/components/posts/post-list'
 
 export const metadata: Metadata = {
@@ -33,13 +33,19 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
     return <p>No posts available.</p>;
   }
 
+  const displayPosts = posts.map((post) => ({
+    ...post,
+    tags: post.tags ?? [], // Ensures tags is always an array
+  }));
+
   return (
     <div className="mx-auto container">
-      <h1 className="text-3xl">Articles</h1>
+      <h1 className="text-center text-xl">Coming soon</h1>
+      {/* <h1 className="text-3xl">Articles</h1>
       <p>
         Insights, references, and step-by-step guides on coding, web design, and development.
       </p>
-      <PostList posts={posts} />
+      <PostList posts={displayPosts} /> */}
     </div>
   )
 }
