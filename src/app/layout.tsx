@@ -3,7 +3,7 @@ import './globals.css'
 
 import { siteConfig } from '@/config/site'
 import { Header, Footer, Spacer } from '@/components/layout'
-import ThemeController from '@/components/theme-controller'
+import ThemeToggle from '@/containers/buttons/theme-toggle'
 import ThemeProvider from '@/components/providers/theme-provider'
 
 export const metadata: Metadata = {
@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={`scroll-pt-[3.5rem]`}>
         <ThemeProvider>
           <div className={`flex flex-col min-h-dvh font-sans`}>
-            <Header action={<ThemeController />} />
+            <Header action={<ThemeToggle />} />
             <Spacer size="large" />
             <main className={`flex-1`}>{children}</main>
             <Footer />

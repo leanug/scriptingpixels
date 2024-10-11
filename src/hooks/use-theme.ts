@@ -3,7 +3,9 @@
 import { useThemeStore } from '@/store'
 import { useEffect, useRef } from 'react'
 
-const THEME_KEY: string = 'leanug_theme' // Define the key for localStorage
+import { siteConfig } from '@/config/site'
+
+const THEME_KEY: string = siteConfig.themeLocalStorageKey // Define the key for localStorage
 
 interface ThemeStore {
   theme: string

@@ -3,10 +3,11 @@ import PostItem from '@/components/posts/post-item'
 
 // Define the type for a post
 type Post = {
-  slug: string;
-  title: string;
-  description?: string;
-  date: string;
+  image: string
+  slug: string
+  title: string
+  description?: string
+  date: string
   tags?: string[]
 };
 
@@ -19,9 +20,10 @@ type PostsListProps = {
 const PostsList: React.FC<PostsListProps> = ({ posts }) => {
   return (
     <ul className="space-y-6">
-      {posts.map(({ slug, title, description, date, tags }) => (
-        <PostItem 
+      {posts.map(({ image, slug, title, description, date, tags }) => (
+        <PostItem
           key={slug}
+          image={image}
           slug={slug}
           title={title}
           description={description}

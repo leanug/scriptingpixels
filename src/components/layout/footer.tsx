@@ -1,12 +1,13 @@
 import Link from "next/link"
 import Image from 'next/image'
 
-import { FaGithub, FaYoutube } from 'react-icons/fa'
+import { FaGithub, FaYoutube, FaInstagram } from 'react-icons/fa'
 
 import { siteConfig } from "@/config/site"
 
 export const Footer: React.FC = () => {
   const pages = siteConfig.navigation
+
   return (
     <footer className="py-8 container space-y-6 mx-auto text-center">
       <Image
@@ -21,9 +22,7 @@ export const Footer: React.FC = () => {
           href={siteConfig.siteGithub}
           className="btn btn-ghost border border-gray-600"
         >
-          <FaGithub
-            size={24} // Customize size here
-          />
+          <FaGithub size={24} />
           Source
         </a>
       </p>
@@ -31,16 +30,17 @@ export const Footer: React.FC = () => {
         <a
           href={siteConfig.socialLinks.github}
         >
-          <FaGithub
-            size={24} // Customize size here
-          />
+          <FaGithub size={24} />
         </a>
         <a
           href={siteConfig.socialLinks.youtube}
         >
-          <FaYoutube
-            size={24} // Customize size here
-          />
+          <FaYoutube size={24} />
+        </a>
+        <a
+          href={siteConfig.socialLinks.instagram}
+        >
+          <FaInstagram size={24} />
         </a>
       </div>
       {

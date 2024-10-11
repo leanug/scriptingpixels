@@ -12,11 +12,13 @@ const posts = defineCollection({
   name: 'Post',
   pattern: 'blog/**/*.mdx',
   schema: s.object({
+    image: s.string().max(99),
     slug: s.path(),
     title: s.string().max(99),
     description: s.string().max(999).optional(),
     date: s.isodate(),
     published: s.boolean().default(true),
+    featured: s.boolean().default(false),
     tags: s.array(s.string()).optional(),
     body: s.mdx()
   })

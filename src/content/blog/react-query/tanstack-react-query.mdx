@@ -1,0 +1,56 @@
+---
+image: tanstack-logo.png
+title: Getting Started with TanStack React Query
+description: Learn how to fetch and update data efficiently using TanStack React Query with useQuery and useMutation.
+date: 2024-03-06
+tags: ["code", "React", "React Query", "TanStack", "blog"]
+published: true
+featured: true
+---
+
+# Getting Started with TanStack React Query
+
+In this tutorial, we're diving into TanStack's React Query, a fantastic tool for fetching, caching, and updating data in your React apps. If you've been managing state with useEffect and useState for all your data fetching, React Query can simplify your workflow with a more powerful, flexible approach.
+
+## What is TanStack React Query?
+
+TanStack React Query, commonly referred to as just React Query, is a library that provides powerful hooks for data fetching, synchronization, caching, and more. It helps reduce boilerplate code, making data management and side-effect handling in React applications easier and more efficient.
+
+## Key Hooks: useQuery and useMutation
+
+In this post, we’ll focus on two key hooks:
+- **useQuery**: Used for fetching data, caching the results, and automatically keeping it up-to-date.
+- **useMutation**: Used for creating or updating data on the server, and managing the result in a way that feels almost like magic.
+
+### Using useQuery
+
+`useQuery` is the core hook in React Query for fetching data. Here’s a quick example of how to use it:
+
+```jsx
+import { useQuery } from 'react-query';
+
+const fetchPosts = async () => {
+  const response = await fetch('/api/posts');
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+};
+
+const Posts = () => {
+  const { data, error, isLoading } = useQuery('posts', fetchPosts);
+
+  if (isLoading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+  return (
+    <div>
+      {data.map(post => (
+        <div key={post.id}>
+          <h3>{post.title}</h3>
+          <p>{post.body}</p>
+        </div>
+      ))}
+    </div>
+  );
+};

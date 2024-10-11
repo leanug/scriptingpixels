@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components"
 import { Metadata } from "next";
@@ -69,6 +70,13 @@ export default async function PostPage({ params }: PostPageProps) {
     <section>
       <div className="container max-w-4xl mx-auto">
         <article>
+          <Image
+            src={`/images/content/${post?.image}`}
+            alt={'Image for ' + post?.title}
+            width={72}
+            height={72}
+            className="mb-6 rounded-lg"
+          />
           <h1 className="text-xl md:text-4xl lg:text-6xl font-bold mb-6 lg:mb-12">
             {post?.title}
           </h1>

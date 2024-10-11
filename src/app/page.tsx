@@ -1,15 +1,16 @@
-import Image from 'next/image'
-import { posts } from "#site/content"
-import { sortPosts } from '@/utils'
-import PostsList from '@/components/posts/post-list';
 import Link from 'next/link';
 
+import PostsList from '@/components/posts/post-list';
+import { posts } from "#site/content"
+import { sortPosts } from '@/utils'
+import { Post } from "@/types";
+
 export default function Home() {
-  const latestPosts = sortPosts(posts).slice(0, 5);
+  const latestPosts: Post[] = sortPosts(posts).slice(0, 5);
   
   return (
     <section>
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-3xl mx-auto px-2.5">
         <div className="space-y-3 text-balance">
           <h1 className="text-xl md:text-5xl mt-2.5 font-semibold">
             Code, One Step at a Time!

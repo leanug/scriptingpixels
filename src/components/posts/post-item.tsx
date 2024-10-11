@@ -5,6 +5,7 @@ import Link from "next/link"
 import TagList from "../tags/tag-list"
 
 type PostItemProps = {
+  image: string;
   slug: string;
   title: string;
   description?: string;
@@ -13,6 +14,7 @@ type PostItemProps = {
 }
 
 const PostItem: React.FC<PostItemProps> = ({ 
+  image,
   slug,
   title,
   description,
@@ -20,15 +22,18 @@ const PostItem: React.FC<PostItemProps> = ({
   tags
 }) => {
   const postUrl = `/${slug}`
+  console.log('image', image);
+  
   return (
     <li key={slug}>
       <article className="card">
-        <div className="flex items-start flex-row gap-4">
+        <div className="flex items-start flex-col sm:flex-row gap-4">
           <Image
-            src={'/logo.png'}
-            alt="Logo"
-            width={46}
-            height={46}
+            src={`/images/content/${image}`}
+            alt={'Image for ' + title}
+            width={64}
+            height={64}
+            className="rounded-lg"
           />
           <div className="text-start">
             <time 

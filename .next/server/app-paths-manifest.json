@@ -1,5 +1,11 @@
 {
-  "/blog/[...slug]/page": "app/blog/[...slug]/page.js",
+  "/_not-found": "app/_not-found.js",
+  "/contact/page": "app/contact/page.js",
+  "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/opengraph-image.png/route": "app/opengraph-image.png/route.js",
   "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js"
+  "/tags/page": "app/tags/page.js",
+  "/blog/page": "app/blog/page.js",
+  "/blog/[...slug]/page": "app/blog/[...slug]/page.js",
+  "/api/og/route": "app/api/og/route.js"
 }
