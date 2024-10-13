@@ -55,14 +55,6 @@ export const Footer: React.FC = () => {
           </div>
         ) : null
       }
-      <div className="mt-4">
-        <span>
-          Built by&nbsp;
-          <a className="link font-semibold" href={siteConfig.author.website}>
-            {siteConfig.author.userName}
-          </a>
-        </span>
-      </div>
     </footer>
   )
 }
