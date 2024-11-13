@@ -21,7 +21,6 @@ This project was created by combining resources and tutorials from the following
 
 ## ✨ Features
 
-- 📝 Step-by-step tutorials on programming and web development.
 - 📱 Responsive design for optimal viewing on various devices.
 - 🎨 Minimalist aesthetic for a clean and focused reading experience.
 - 🔗 Links to social media and GitHub for easy interaction.
@@ -33,13 +32,13 @@ To set up the project locally, follow these steps:
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/scripting-pixels.git
+   git clone https://github.com/leanug/scriptingpixels.git
    ```
 
 2. Navigate to the project directory:
 
    ```bash
-   cd scripting-pixels
+   cd scriptingpixels
    ```
 
 3. Install the dependencies:
