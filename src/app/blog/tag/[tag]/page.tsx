@@ -35,6 +35,7 @@ async function TagsPage({ params }: Props) {
 
    // Filter posts by the selected tag
   const filteredPosts = getPostsByTagSlug(posts, tag)
+  const publishedPosts = filteredPosts.filter((post) => post.published === true)
 
   return (
     <section className="relative">
@@ -42,7 +43,7 @@ async function TagsPage({ params }: Props) {
         <TagList selectedTag={tag} />
       </BlogSidebar>
       <div className="max-w-2xl mx-auto px-2.5">
-        <PostsList posts={filteredPosts} />
+        <PostsList posts={publishedPosts} />
       </div>
     </section>
   )
