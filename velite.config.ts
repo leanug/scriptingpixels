@@ -12,6 +12,7 @@ const posts = defineCollection({
   name: 'Post',
   pattern: 'blog/**/*.mdx',
   schema: s.object({
+    author: s.string().max(99),
     image: s.string().max(99),
     slug: s.path(),
     title: s.string().max(99),

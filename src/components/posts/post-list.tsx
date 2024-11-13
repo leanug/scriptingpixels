@@ -28,11 +28,10 @@ const PostsList: React.FC<PostsListProps> = ({ posts }) => {
           title={title}
           description={description}
           date={date}
-          tags={tags ?? []}
         />
       ))}
     </ul>
-  );
-};
+  )
+}
 
 export default PostsList;

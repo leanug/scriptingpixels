@@ -5,7 +5,7 @@ import { useThemeStore } from '@/store'
 
 const ThemeToggle: React.FC = () => {
   const { theme, setTheme } = useThemeStore()
-
+  
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dracula' : 'light')
   }
@@ -13,14 +13,16 @@ const ThemeToggle: React.FC = () => {
   return (
     <button
       onClick={toggleTheme}
-      className="btn btn-ghost border border-gray-500"
+      className="btn btn-square btn-ghost"
       aria-label="Toggle Theme"
     >
-      {theme === 'light' ? (
-        <FaMoon size={20} />
-      ) : (
-        <FaSun size={20} />
-      )}
+      {
+        theme === 'light' ? (
+          <FaMoon size={18} />
+        ) : (
+          <FaSun size={18} />
+        )
+      }
       <span className="sr-only">Toggle Theme</span>
     </button>
   )

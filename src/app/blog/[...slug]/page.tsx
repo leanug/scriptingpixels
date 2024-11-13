@@ -1,11 +1,11 @@
-import Image from "next/image";
-import { posts } from "#site/content";
+import { posts } from "#site/content"
 import { MDXContent } from "@/components/mdx-components"
-import { Metadata } from "next";
-import { notFound } from "next/navigation";
+import { Metadata } from "next"
+import { notFound } from "next/navigation"
 import '@/styles/mdx.css'
 
-import { siteConfig } from "@/config/site";
+import { siteConfig } from "@/config/site"
+import { formatDate } from "@/utils"
 
 type PostPageProps = {
   params: {
@@ -14,10 +14,10 @@ type PostPageProps = {
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = posts.find((post) => post.slugAsParams === slug);
+  const slug = params?.slug?.join("/")
+  const post = posts.find((post) => post.slugAsParams === slug)
 
-  return post;
+  return post
 }
 
 export async function generateMetadata({
@@ -50,6 +50,12 @@ export async function generateMetadata({
         },
       ],
     },
+    twitter: {
+      card: "summary_large_image", // or "summary" if you want a smaller image
+      title: post.title,
+      description: post.description,
+      images: [`/api/og?${ogSearchParams.toString()}`],
+    },
   }
 }
 
@@ -68,20 +74,24 @@ export default async function PostPage({ params }: PostPageProps) {
 
   return (
     <section>
-      <div className="container max-w-4xl mx-auto">
+      <div className="container max-w-3xl mx-auto px-2.5 lg:px-0">
         <article>
-          <Image
-            src={`/images/content/${post?.image}`}
-            alt={'Image for ' + post?.title}
-            width={72}
-            height={72}
-            className="mb-6 rounded-lg"
-          />
-          <h1 className="text-xl md:text-4xl lg:text-6xl font-bold mb-6 lg:mb-12">
+          <div className="mb-3">
+            Published on 
+            <time 
+              dateTime={post.date}
+              className="text-sm"
+            >
+              {formatDate(post.date)}
+            </time> by {post.author}
+          </div>
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-bold mb-6 lg:mb-12">
             {post?.title}
           </h1>
           {post?.description ? (
-            <p className="text-xl mt-0 text-muted-foreground">{post?.description}</p>
+            <p className="text-xl mt-0 mb-10 text-muted-foreground">
+              {post?.description}
+            </p>
           ) : null}
           <MDXContent code={post?.body || ''} />
         </article>

@@ -17,10 +17,10 @@ const Filename = ({ filename }: { filename?: string }) => {
 
 const components = {
   h2: (props: any) => (
-    <h2 className="text-2xl lg:text-4xl font-semibold mb-6 mt-14" {...props} />
+    <h2 className="text-2xl lg:text-4xl font-semibold mb-10 mt-14" {...props} />
   ),
   p: (props: any) => (
-    <p className="text-base md:text-lg leading-relaxed mb-6" {...props} />
+    <p className="text-base md:text-xl mb-6" {...props} />
   ),
   a: (props: any) => (
     <a

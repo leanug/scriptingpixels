@@ -20,9 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={`scroll-pt-[3.5rem]`}>
         <ThemeProvider>
-          <div className={`flex flex-col min-h-dvh font-sans`}>
+          <div className={`flex flex-col min-h-dvh font-sans bg-base-200`}>
             <Header action={<ThemeToggle />} />
-            <Spacer size="large" />
+            <Spacer size="medium" />
             <main className={`flex-1`}>{children}</main>
             <Footer />
           </div>

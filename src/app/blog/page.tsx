@@ -1,11 +1,12 @@
-import { posts } from "#site/content";
-import { Metadata } from "next";
-import { sortPosts } from "@/utils";
-import PostList from '@/components/posts/post-list'
+import { posts } from "#site/content"
+import { Metadata } from "next"
+import PostsList from '@/components/posts/post-list'
+import TagList from "@/components/tags/tag-list"
+import BlogSidebar from "@/components/layout/blog-sidebar"
 
 export const metadata: Metadata = {
-  title: "My blog",
-  description: "This is a description",
+  title: "Blog - ScriptingPixels",
+  description: "ScriptingPixels blog about React, Webflow and web design.",
 };
 
 const POSTS_PER_PAGE = 5
@@ -16,36 +17,33 @@ type BlogPageProps = {
   };
 }
 
-export default async function BlogPage({ searchParams }: BlogPageProps) {  
-  /* const currentPage = Number(searchParams?.page) || 1;
+export default async function BlogPage({ searchParams }: BlogPageProps) {
+ /*  const currentPage = Number(searchParams?.page) || 1;
   const sortedPosts = sortPosts(posts.filter((post) => post.published));
   const totalPages = Math.ceil(sortedPosts.length / POSTS_PER_PAGE);
 
   const displayPosts = sortedPosts.slice(
     POSTS_PER_PAGE * (currentPage - 1),
     POSTS_PER_PAGE * currentPage
-  );
+  ); */
 
-  const tags = getAllTags(posts);
+  /* const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags); */
 
   if (!posts || posts.length === 0) {
-    return <p>No posts available.</p>;
+    return <p>No posts available.</p>
   }
 
-  const displayPosts = posts.map((post) => ({
-    ...post,
-    tags: post.tags ?? [], // Ensures tags is always an array
-  }));
+  const publishedPosts = posts.filter((post) => post.published === true)
 
   return (
-    <div className="mx-auto container">
-      <h1 className="text-center text-xl">Coming soon</h1>
-      {/* <h1 className="text-3xl">Articles</h1>
-      <p>
-        Insights, references, and step-by-step guides on coding, web design, and development.
-      </p>
-      <PostList posts={displayPosts} /> */}
-    </div>
+    <section className="relative">
+      <BlogSidebar>
+        <TagList />
+      </BlogSidebar>
+      <div className="max-w-2xl mx-auto px-2.5">
+        <PostsList posts={publishedPosts} />
+      </div>
+    </section>
   )
 }

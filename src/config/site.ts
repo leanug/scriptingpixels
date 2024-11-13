@@ -10,13 +10,10 @@ export const siteConfig = {
     userName: 'leanug'
   },
   headerNavLinks: [
-    { title: 'Tags', url: '/tags' },
     { title: 'Blog', url: '/blog' },
     { title: 'Contact', url: '/contact' },
   ],
   navigation: [
-    { title: 'Home', url: '/' },
-    { title: 'Tags', url: '/tags' },
     { title: 'Blog', url: '/blog' },
     { title: 'Contact', url: '/contact' },
     { title: 'Feedback', url: 'https://www.feedbackrealm.com/b/scriptingpixels' },
@@ -24,7 +21,7 @@ export const siteConfig = {
   socialLinks: {
     youtube: 'https://www.youtube.com/@scriptingpixels',
     instagram: 'https://www.instagram.com/scriptingpixels/',
-    /* twitter: 'https://twitter.com/username', */
+    twitter: 'https://twitter.com/scriptpxls',
     github: 'https://github.com/Scripting-Pixels',
     /* dribbble: 'https://github.com/username', */
     /* website: 'https://www.mysite.com', */

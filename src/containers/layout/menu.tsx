@@ -33,10 +33,10 @@ const Menu = () => {
       active:bg-transparent focus:bg-transparent
     ">
       <button 
-        className="mb-1 btn"
+        className="mb-1 btn btn-ghost btn-square"
         onClick={handleToggle}
       >
-        <FaBars size={24} />
+        <FaBars size={20} />
       </button>
       {isOpen && (
         <ul className="
@@ -45,7 +45,7 @@ const Menu = () => {
           onClick={(e) => e.stopPropagation()}
         >
           {siteConfig.navigation.map(page => (
-            <li>
+            <li key={page.url}>
               <Link 
                 className="font-medium" 
                 href={page.url}

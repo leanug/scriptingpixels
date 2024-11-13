@@ -1,7 +1,3 @@
-Here’s an enhanced version of your README with emojis and improved Markdown formatting for a more engaging look:
-
----
-
 # 🌐 Scripting Pixels
 
 Welcome to **Scripting Pixels**! 🚀 Your go-to blog for coding insights and web development tips. This project aims to provide a platform for learning to code through engaging tutorials and practical examples.
@@ -98,11 +94,4 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 For inquiries or feedback, please reach out:
 
-- GitHub: [yourusername](https://github.com/yourusername)
-- Twitter: [@yourtwitterhandle](https://twitter.com/yourtwitterhandle)
-
----
-
-### Notes:
-- Don't forget to replace placeholder links and usernames with your actual information.
-- Feel free to add any additional sections or information relevant to your project.
+- GitHub: [yourusername](https://github.com/leanug)

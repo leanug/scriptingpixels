@@ -11,37 +11,27 @@ type HeaderProps = {
 
 export const Header: FC<HeaderProps> = ({ action }) => {
   return (
-    <header className="navbar py-6 container mx-auto">
+    <header className="navbar py-3 px-2.5 lg:px-6 mx-auto border-b border-b-gray-300 border-opacity-40">
       <div className="flex-1">
-        <Link href="/" className="flex flex-row items-center gap-2 text-xl">
+        <Link href="/" className="btn btn-ghost font-bold text-lg">
           <Image
-            src={'/logo.png'}
+            src={'/scriptingpixelslogo.svg'}
             alt="Logo"
-            width={24}
-            height={24}
+            width={28}
+            height={28}
           />
           ScriptingPixels
         </Link>
       </div>
       <div className="flex-none">
-        <ul className="px-1 flex items-center gap-4">
-          <li className="hidden sm:block">
-            <a href="https://www.youtube.com/@scriptingpixels">
-              <Image
-                src={'/youtube.svg'} // Add the src attribute with the imported image
-                alt="Logo" // Add the alt attribute for accessibility
-                width={38} // Set the width of the image
-                height={38} // Set the height of the image
-              />
-            </a>
-          </li>
-            {siteConfig.navigation.map(page => (
-              <li key={page.url} className="md:block hidden">
-                <Link className="font-medium" href={page.url}>
-                  {page.title}
-                </Link>
-              </li>
-            ))}
+        <ul className="px-1 flex items-center">
+          {siteConfig.navigation.map(page => (
+            <li key={page.url} className="md:block hidden">
+              <Link className="btn btn-ghost" href={page.url}>
+                {page.title}
+              </Link>
+            </li>
+          ))}
           <li className="md:block hidden">{action}</li>
           <li className="block md:hidden"><Menu /></li>
         </ul>
