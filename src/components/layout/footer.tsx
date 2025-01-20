@@ -10,13 +10,6 @@ export const Footer: React.FC = () => {
 
   return (
     <footer className="py-12 container space-y-6 mx-auto text-center">
-      <Image
-        src={'/scriptingpixelslogo.svg'}
-        alt="Logo"
-        width={34}
-        height={34}
-        className="mx-auto"
-      />
       <p className="flex items-center justify-center gap-3">
         Fix errors: <a
           href={siteConfig.siteGithub}
@@ -52,18 +45,6 @@ export const Footer: React.FC = () => {
           <FaTwitter size={24} />
         </a>
       </div>
-      {
-        pages ? (
-          <div>
-            <span className="text-lg font-semibold uppercase">Pages</span>
-            <nav className="mt-3">
-              {pages.map(page => 
-                <Link className="btn btn-ghost w-24" key={page.url} href={page.url}>{page.title}</Link>
-              )}
-            </nav>
-          </div>
-        ) : null
-      }
     </footer>
   )
 }
