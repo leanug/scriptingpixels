@@ -1,30 +1,32 @@
 import Link from 'next/link'
 
-import { posts } from "#site/content"
-import PostsList from '@/components/posts/post-list'
-import TagList from "@/components/tags/tag-list"
-import BlogSidebar from "@/components/layout/blog-sidebar"
-
-type BlogPageProps = {
-  searchParams: {
-    page?: string;
-  };
-}
-
-export default function Home({ searchParams }: BlogPageProps) {
-  if (!posts || posts.length === 0) {
-    return <p>No posts available.</p>
-  }
-
-  const publishedPosts = posts.filter((post) => post.published === true)
-
+export default function Home() {
   return (
-    <section className="relative">
-      <BlogSidebar>
-        <TagList />
-      </BlogSidebar>
-      <div className="max-w-2xl mx-auto px-2.5">
-        <PostsList posts={publishedPosts} />
+    <section>
+      <div className="max-w-3xl mx-auto px-2.5">
+        <div className="space-y-6 text-balance text-center">
+          <h1 className="text-xl md:text-5xl mt-2.5 font-semibold">
+            Building stuff, one pixel at a time.
+          </h1>
+          <p className="text-lg md:text-2xl font-medium opacity-75">
+            Get actionable insights into coding, broken down by the numbers.
+          </p>
+          <div className="text-xl flex flex-row gap-3 justify-center">
+            <a 
+              className="btn btn-lg btn-neutral w-32" 
+              href="https://www.youtube.com/@scriptingpixels"
+            >
+              YouTube
+            </a>
+            <a 
+              className="btn btn-lg btn-neutral w-32" 
+              href="https://github.com/scripting-pixels"
+            >
+              GitHub
+            </a>
+            <Link className="btn btn-lg btn-neutral w-32" href="/blog">Blog</Link>
+          </div>
+        </div>
       </div>
     </section>
   )

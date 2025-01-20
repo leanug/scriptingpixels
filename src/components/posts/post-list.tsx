@@ -1,5 +1,6 @@
 import React from 'react';
 import PostItem from '@/components/posts/post-item'
+import { useMemo } from 'react';
 
 // Define the type for a post
 type Post = {
@@ -18,9 +19,14 @@ type PostsListProps = {
 
 // Define the PostsList component
 const PostsList: React.FC<PostsListProps> = ({ posts }) => {
+// Memoize the sorted posts to prevent re-sorting on every render
+const sortedPosts = useMemo(() => {
+  return [...posts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}, [posts]);
+
   return (
     <ul className="space-y-6">
-      {posts.map(({ image, slug, title, description, date, tags }) => (
+      {sortedPosts.map(({ image, slug, title, description, date }) => (
         <PostItem
           key={slug}
           image={image}
